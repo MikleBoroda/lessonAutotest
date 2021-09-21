@@ -9,6 +9,9 @@ import lombok.Setter;
 
 import static Lesson1.StringUtils.randomHexString;
 
+/**
+ * Описание элементов модели "Проект"
+ */
 @NoArgsConstructor
 @Getter
 @Setter
