@@ -7,5 +7,4 @@ import lombok.Setter;
 @Setter
 public abstract class Entity {
     private Integer id;
-
 }

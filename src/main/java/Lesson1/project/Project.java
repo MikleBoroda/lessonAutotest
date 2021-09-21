@@ -1,6 +1,7 @@
 package Lesson1.project;
 
 
+import Lesson1.Creatable;
 import Lesson1.CreatableEntity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,7 +12,7 @@ import static Lesson1.StringUtils.randomHexString;
 @NoArgsConstructor
 @Getter
 @Setter
-public class Project extends CreatableEntity {
+public class Project extends CreatableEntity implements Creatable<Project> {
 
     private String name = randomHexString(10);
     private String description = randomHexString(15);
@@ -25,6 +26,13 @@ public class Project extends CreatableEntity {
     private Boolean inheritMembers = false; //checkBox "Наследовать участников"
     private Integer defaultVersionId = 2; // id из таблицы Version
     private Integer defaultAssignedToId = 26472; // непонятное поле
+
+    @Override
+    public Project create() {
+        // TODO:Реализовать с помощью запроса к БД
+        throw new UnsupportedOperationException();
+
+    }
 
 
 }
