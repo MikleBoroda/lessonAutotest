@@ -1,16 +1,17 @@
 package Lesson1.project;
 
 
+import Lesson1.CreatableEntity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import static Lesson1.project.StringUtils.randomHexString;
+import static Lesson1.StringUtils.randomHexString;
 
 @NoArgsConstructor
 @Getter
 @Setter
-public class Project extends CreatableEntity{
+public class Project extends CreatableEntity {
 
     private String name = randomHexString(10);
     private String description = randomHexString(15);

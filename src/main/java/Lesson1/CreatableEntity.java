@@ -1,5 +1,6 @@
-package Lesson1.project;
+package Lesson1;
 
+import Lesson1.Entity;
 import lombok.Getter;
 import lombok.Setter;
 
