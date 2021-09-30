@@ -1,6 +1,7 @@
 package at.study.redmine.model;
 
 
+import at.study.redmine.db.requests.UserRequests;
 import at.study.redmine.model.user.Lenguage;
 import at.study.redmine.model.user.MailNotification;
 import at.study.redmine.model.user.Status;
@@ -31,6 +32,7 @@ public class User extends CreatableEntity implements Creatable<User> {
     private Status status = Status.ACTIVE;
     private LocalDateTime lastLoginOn;
     private Lenguage lenguage = Lenguage.RUSSIAN;
+    private String authSourceId;
     private String type = "User";
     private String identityUrl;
     private MailNotification mailNotification = MailNotification.NONE;
@@ -45,7 +47,12 @@ public class User extends CreatableEntity implements Creatable<User> {
 
     @Override
     public User create() {
-        // TODO:Реализовать с помощью запроса к БД
-        throw new UnsupportedOperationException();
+        new UserRequests().create(this);
+        tokens.forEach(t -> t.setUserid(id));
+        emails.forEach(e -> e.setUserid(id));
+        tokens.forEach(Token::create);
+        emails.forEach(Email::create);
+        return this;
+
     }
 }
